@@ -21,18 +21,23 @@ async def on_message(message):
         #Purge messages from general
         print(purge_warning)
         await client.send_message(message.channel, purge_warning)
-        ##await asyncio.sleep(1)
-        ##await asyncio.sleep(1)
+        #Omninous Delay
+        await asyncio.sleep(1)
         #Delete all channels.
         server = message.server
         channelList =[]
         for i in server.channels:
             channelList.append(i)
-        print (channelList)
         for i in channelList:
             await client.delete_channel(i)
-                
         #Delete all roles.
+        roleList =[]
+        for i in server.roles:
+            roleList.append(i)
+            print (roleList)
+        for i in roleList:
+            if i != roleList[1]:
+                await client.delete_role(server, i)
         await client.send_message(message.channel, purge_success)
         
        
