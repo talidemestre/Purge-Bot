@@ -37,6 +37,7 @@ async def on_message(message):
             print (roleList)
         for i in range(1,len(roleList)-1):
             await client.delete_role(server, roleList[i])
+        #Confirmation Message
         await client.send_message(message.channel, purge_success)
         
        
