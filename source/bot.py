@@ -32,12 +32,11 @@ async def on_message(message):
             await client.delete_channel(i)
         #Delete all roles.
         roleList =[]
-        for i in server.roles:
+        for i in server.role_hierarchy:
             roleList.append(i)
             print (roleList)
-        for i in roleList:
-            if i != roleList[1]:
-                await client.delete_role(server, i)
+        for i in range(1,len(roleList)-1):
+            await client.delete_role(server, roleList[i])
         await client.send_message(message.channel, purge_success)
         
        
