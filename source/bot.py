@@ -1,5 +1,7 @@
 import discord
 import asyncio
+import copy
+
 purge_warning = "Warning, purging server."
 purge_success = "The purge has been successful. Enjoy your server."
 
@@ -23,12 +25,12 @@ async def on_message(message):
         ##await asyncio.sleep(1)
         #Delete all channels.
         server = message.server
-        while 1==1:
-            for server in client.servers:
-                for i in server.channels:
-                    await client.delete_channel(i)
-                    break
-                break
+        channelList =[]
+        for i in server.channels:
+            channelList.append(i)
+        print (channelList)
+        for i in channelList:
+            await client.delete_channel(i)
                 
         #Delete all roles.
         await client.send_message(message.channel, purge_success)
