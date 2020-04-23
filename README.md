@@ -1,2 +1,2 @@
 # Purge-Bot
-Python bot that deletess everything if you ask it too. Yes the bot secret is public.
+Discord python bot that deletes everything if you ask it too. Yes the bot secret is public.
